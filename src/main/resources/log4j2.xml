@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="OFF">
+
+    <Properties>
+        <Property name="LOG_LOC">logs</Property>
+        <Property name="MAX">5</Property>
+        <Property name="LOG_PATTERN">%d{yyyy.MM.dd HH:mm:ss.SSS} [%p] %c: %m%n
+        </Property>
+    </Properties>
+
+    <Appenders>
+        <Console name="STDOUT" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="${LOG_PATTERN}" />
+        </Console>
+
+        <File name="FILEOUT" fileName="/Users/ankit.kailaswar/personal/Projects/modules/all.log" append="false">
+            <PatternLayout>
+                <Pattern>%d{yyyyMMdd HH:mm:ss} %-5p [%t] %C{2} %F%L - %m%n</Pattern>
+            </PatternLayout>
+        </File>
+
+    </Appenders>
+
+    <Loggers>
+        <Root>
+            <AppenderRef ref="FILE"  level="info"/>
+            <AppenderRef ref="STDOUT"  level="info"/>
+        </Root>
+    </Loggers>
+
+</Configuration>
